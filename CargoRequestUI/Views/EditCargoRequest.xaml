@@ -43,7 +43,7 @@
             <TextBox x:Name="txtCargoWeight" Text=""/>
             <TextBlock Text="Объем"/>
             <TextBox x:Name="txtCargoVolume" Text=""/>
-            <TextBlock Text="Габариты"/>
+            <TextBlock Text="Габариты (формат _х_х_)"/>
             <TextBox x:Name="txtCargoDimensions" Text=""/>
             <TextBlock Text="Документы"/>
             <TextBox x:Name="txtDocument" Text=""/>

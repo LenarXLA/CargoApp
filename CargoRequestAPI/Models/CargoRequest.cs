@@ -7,6 +7,8 @@ public class CargoRequest
 {
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
+    
+    [Required]
     public int ReqNumber { get; set; }
     public DateTime Date { get; set; }
     public Status Status { get; set; }

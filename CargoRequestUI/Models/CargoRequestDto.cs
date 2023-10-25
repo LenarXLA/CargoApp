@@ -38,6 +38,9 @@ public class CargoRequestDto : IDataErrorInfo
     }
     public string Error
     {
-        get { throw new NotImplementedException(); }
+        get
+        {
+            return string.Empty;
+        }
     }
 }

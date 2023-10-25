@@ -18,11 +18,11 @@ public class SenderDto : IDataErrorInfo
             {
                 case "Name":
                     int res1;
-                    if (int.TryParse(Address, out res1))
+                    if (int.TryParse(Name, out res1))
                     {
                         error = "Имя не должно быть просто цифрами";
                     }
-                    else if (string.IsNullOrEmpty(Address))
+                    else if (string.IsNullOrEmpty(Name))
                     {
                         error = "Поле не должно быть пустым!";
                     }
@@ -45,6 +45,9 @@ public class SenderDto : IDataErrorInfo
     }
     public string Error
     {
-        get { throw new NotImplementedException(); }
+        get
+        {
+            return string.Empty;
+        }
     }
 }

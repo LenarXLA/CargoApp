@@ -45,6 +45,9 @@ public class RecipientDto : IDataErrorInfo
     }
     public string Error
     {
-        get { throw new NotImplementedException(); }
+        get
+        {
+            return string.Empty;
+        }
     }
 }

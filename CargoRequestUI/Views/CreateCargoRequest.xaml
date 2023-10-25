@@ -15,7 +15,18 @@
                 <TextBlock Foreground="Red" FontSize="16" FontWeight="Bold">!</TextBlock>
             </StackPanel>
         </ControlTemplate>
+        <Style TargetType="TextBox">
+            <Style.Triggers>
+                <Trigger Property="Validation.HasError" Value="True">
+                    <Setter Property="ToolTip"
+                Value="{Binding RelativeSource={RelativeSource Self},
+                    Path=(Validation.Errors)[0].ErrorContent}" />
+                    <Setter Property="Foreground" Value="Red" />
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
+
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -26,6 +37,7 @@
             Orientation="Vertical"
             HorizontalAlignment="Center"
             VerticalAlignment="Center">
+            
             <TextBlock Text="Номер заявки"/>
             <TextBox x:Name="txtReqNumber" Validation.ErrorTemplate="{StaticResource validationFailed}">
                 <TextBox.Text>
@@ -38,26 +50,105 @@
             </TextBox>
 
             <TextBlock Text="Получатель"/>
-            <TextBox x:Name="txtRecipient" Text=""/>
-            
+            <TextBox x:Name="txtRecipient" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Recipient.Name">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <TextBlock Text="Адрес получателя"/>
-            <TextBox x:Name="txtRecipientAddress" Text=""/>
-            
+            <TextBox x:Name="txtRecipientAddress" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Recipient.Address">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <TextBlock Text="Отправитель"/>
-            <TextBox x:Name="txtSender" Text=""/>
-           
+            <TextBox x:Name="txtSender" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Sender.Name">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <TextBlock Text="Адрес отправителя"/>
-            <TextBox x:Name="txtSenderAddress" Text=""/>
+            <TextBox x:Name="txtSenderAddress" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Sender.Address">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
+
             <TextBlock Text="Характер груза"/>
-            <TextBox x:Name="txtCargoCharact" Text=""/>
+            <TextBox x:Name="txtCargoCharact" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Cargo.Сharacteristic">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <TextBlock Text="Вес"/>
-            <TextBox x:Name="txtCargoWeight" Text=""/>
+            <TextBox x:Name="txtCargoWeight" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Cargo.Weight">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <TextBlock Text="Объем"/>
-            <TextBox x:Name="txtCargoVolume" Text=""/>
+            <TextBox x:Name="txtCargoVolume" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Cargo.Volume">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <TextBlock Text="Габариты"/>
-            <TextBox x:Name="txtCargoDimensions" Text=""/>
+            <TextBox x:Name="txtCargoDimensions" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Cargo.Dimensions">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
             <TextBlock Text="Документы"/>
-            <TextBox x:Name="txtDocument" Text=""/>
+            <TextBox x:Name="txtDocument" Validation.ErrorTemplate="{StaticResource validationFailed}">
+                <TextBox.Text>
+                    <Binding Path="Documents">
+                        <Binding.ValidationRules>
+                            <DataErrorValidationRule />
+                        </Binding.ValidationRules>
+                    </Binding>
+                </TextBox.Text>
+            </TextBox>
+
         </StackPanel>
         <Button Grid.Row="1" Content="Создать заявку" Click="Button_Click"/>
     </Grid>

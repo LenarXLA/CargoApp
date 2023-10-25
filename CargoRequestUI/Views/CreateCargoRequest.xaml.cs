@@ -10,7 +10,13 @@ namespace CargoRequestUI.Views
         {
             InitializeComponent();
 
-            DataContext = new CargoRequestDto();
+            var cargoRequestDto = new CargoRequestDto();
+            cargoRequestDto.Recipient = new RecipientDto();
+            cargoRequestDto.Sender = new SenderDto();
+            cargoRequestDto.Cargo = new CargoDto();
+            cargoRequestDto.Status = new StatusDto();
+
+            DataContext = cargoRequestDto;
         }
 
 

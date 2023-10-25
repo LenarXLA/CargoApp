@@ -1,0 +1,53 @@
+﻿<Window x:Class="CargoRequestUI.Views.EditCargoRequest"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CargoRequestUI.Views"
+        mc:Ignorable="d"
+        Title="EditCargoRequest" Height="550" Width="600">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+        <StackPanel
+            Grid.Row="0"
+            Orientation="Vertical"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center">
+            
+            <TextBlock Text="Статус заявки"/>
+            <ComboBox x:Name="cmbxReqStatus" SelectionChanged="cmbxReqStatus_SelectionChanged" />
+
+            <GroupBox x:Name="boxRejectComment" Header="Причина отмены:*" Visibility="Collapsed">
+                <StackPanel>
+                    <TextBox x:Name="txtRejected" Text=""/>
+                </StackPanel>
+            </GroupBox>
+
+            
+            <TextBlock Text="Номер заявки"/>
+            <TextBox x:Name="txtReqNumber" Text=""/>
+            <TextBlock Text="Получатель"/>
+            <TextBox x:Name="txtRecipient" Text=""/>
+            <TextBlock Text="Адрес получателя"/>
+            <TextBox x:Name="txtRecipientAddress" Text=""/>
+            <TextBlock Text="Отправитель"/>
+            <TextBox x:Name="txtSender" Text=""/>
+            <TextBlock Text="Адрес отправителя"/>
+            <TextBox x:Name="txtSenderAddress" Text=""/>
+            <TextBlock Text="Характер груза"/>
+            <TextBox x:Name="txtCargoCharact" Text=""/>
+            <TextBlock Text="Вес"/>
+            <TextBox x:Name="txtCargoWeight" Text=""/>
+            <TextBlock Text="Объем"/>
+            <TextBox x:Name="txtCargoVolume" Text=""/>
+            <TextBlock Text="Габариты"/>
+            <TextBox x:Name="txtCargoDimensions" Text=""/>
+            <TextBlock Text="Документы"/>
+            <TextBox x:Name="txtDocument" Text=""/>
+        </StackPanel>
+        <Button Grid.Row="1" Content="Сохранить изменения" Click="Button_Click"/>
+    </Grid>
+</Window>
